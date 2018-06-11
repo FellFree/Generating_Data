@@ -27,7 +27,7 @@ class Points {
     for (int i = 0; i < names.length; i++) {
       this.currentNoiseTemperature = nextNoise(middleTemperature, 'T');
       this.currentNoiseHumidity = nextNoise(middleHumidity, 'H');
-      this.points[i] = new Point(names[i], this.currentNoiseTemperature, this.currentNoiseHumidity, readDate);
+      this.points[i] = new Point(i, names[i], this.currentNoiseTemperature, this.currentNoiseHumidity, readDate);
 
       print(points[i].toString() + "\n");
     }
@@ -65,5 +65,24 @@ class Points {
       JSONPoints.setJSONObject(i, point);
     }
     return JSONPoints;
+  }
+  
+  public Point[] loadJSONPoints(String path) {
+    
+    JSONArray JSONPoints = loadJSONArray(path);
+
+    Point[] loadPoints = new Point[JSONPoints.size()];
+    
+    for(int i = 0; i < JSONPoints.size(); i++) {
+      JSONObject point = JSONPoints.getJSONObject(i);
+      
+      int id = point.getInt("id");
+      String name = point.getString("name");
+      Float temperature = point.getFloat("temperature");
+      float humidity = point.getFloat("humidity");
+      String readDateString = point.getString("readDate");
+      
+      
+    }
   }
 }

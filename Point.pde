@@ -4,13 +4,15 @@ import java.util.GregorianCalendar;
 import java.text.SimpleDateFormat;
 
 class Point {
+  private int id;
   private String name;
   private float temperature;
   private float humidity;
   private String readDateString;
   private Calendar readDate;
 
-  Point(String name, float temperature, float humidity, Calendar readDate) {
+  Point(int id, String name, float temperature, float humidity, Calendar readDate) {
+    this.id = id;
     this.name = name;
     this.temperature = temperature;
     this.humidity = humidity;
