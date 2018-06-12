@@ -9,13 +9,12 @@ public int HInterval = 1;
 public JSONArray JSONPoints, tempJSONPoints;
 
 void setup() {
-  size(200, 200); 
 
   points = new Points();
 
   toDate = Calendar.getInstance();
   sinceDate = Calendar.getInstance();
-  sinceDate.set(2017, 5, 10);
+  sinceDate.set(2018, 4, 1);
 
   JSONPoints = new JSONArray();
 

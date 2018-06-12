@@ -60,7 +60,7 @@ class Points {
       point.setString("name", points[i].name);
       point.setFloat("temperature", points[i].temperature);
       point.setFloat("humidity", points[i].humidity);
-      point.setString("readDate", points[i].readDateString);
+      point.setString("readDateString", points[i].readDateString);
 
       JSONPoints.setJSONObject(i, point);
     }
@@ -71,18 +71,19 @@ class Points {
     
     JSONArray JSONPoints = loadJSONArray(path);
 
-    Point[] loadPoints = new Point[JSONPoints.size()];
+    Point[] loadedPoints = new Point[JSONPoints.size()];
     
     for(int i = 0; i < JSONPoints.size(); i++) {
       JSONObject point = JSONPoints.getJSONObject(i);
       
-      int id = point.getInt("id");
-      String name = point.getString("name");
-      Float temperature = point.getFloat("temperature");
-      float humidity = point.getFloat("humidity");
-      String readDateString = point.getString("readDate");
+      //int id = point.getInt("id");
+      //String name = point.getString("name");
+      //Float temperature = point.getFloat("temperature");
+      //float humidity = point.getFloat("humidity");
+      //String readDateString = point.getString("readDateString");
       
-      
-    }
+      loadedPoints[i] = new Point(point);
+    } 
+    return loadedPoints;
   }
 }
